@@ -8,18 +8,27 @@ import java.util.List;
  */
 public class StringUtils {
     public static String capitalizeNthCharacter(String str, Integer indexToCapitalize) {
-        return null;
+        return new StringBuilder(str).replace(indexToCapitalize, indexToCapitalize+1, String.valueOf(str.charAt(indexToCapitalize)).toUpperCase()).toString();
     }
 
     public static Boolean isCharacterAtIndex(String baseString, Character characterToCheckFor, Integer indexOfString) {
-        return null;
+        return baseString.charAt(indexOfString) == characterToCheckFor;
     }
 
     public static String[] getAllSubStrings(String string) {
-        return null;
+        //n*(n+1)/2
+        Integer counter = 0;
+        String [] sub = new String[string.length() * (string.length() +1) / 2];
+        for (int i = 0; i < string.length(); i++) {
+            for (int j = i + 1; j <= string.length(); j++) {
+                sub[counter] = string.substring(i, j);
+                counter++;
+            }
+        }
+        return sub;
     }
 
     public static Integer getNumberOfSubStrings(String input){
-        return null;
+        return (input.length() * (input.length() +1)) / 2 - 1;
     }
 }
